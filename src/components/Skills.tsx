@@ -119,7 +119,12 @@ const Skills: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 backdrop-blur-sm bg-white/80 dark:bg-gray-900/80"
             >
               <div className="flex items-center mb-6">
                 <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4`}>
@@ -133,7 +138,7 @@ const Skills: React.FC = () => {
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill}
