@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                 whileHover={{ scale: 1.1, y: -2 }}
-                className="px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg transition-all duration-200"
+                className="px-4 py-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 dark:border-gray-700/20"
               >
                 {tech}
               </motion.div>
