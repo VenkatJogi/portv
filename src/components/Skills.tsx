@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code, Server, Database, Cloud, Monitor, Zap, Brain, Bot, BarChart3, Cog } from 'lucide-react';
+import SectionTransition from './SectionTransition';
 
 const Skills: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -95,13 +96,7 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Skills & Expertise
           </h2>
@@ -109,90 +104,110 @@ const Skills: React.FC = () => {
             Mastering the latest technologies to create innovative solutions
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
-        </motion.div>
+        </SectionTransition>
 
         {/* Technical Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div
+            <SectionTransition
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.02,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-              }}
-              className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 backdrop-blur-sm bg-white/80 dark:bg-gray-900/80"
+              direction="up"
+              delay={categoryIndex * 0.1}
             >
-              <div className="flex items-center mb-6">
-                <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4`}>
-                  <category.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    {category.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Expertise Level</p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                    className="flex items-center"
+              <motion.div
+                whileHover={{ 
+                  y: -12, 
+                  scale: 1.03,
+                  rotateY: 5,
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="group bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+              >
+                <div className="flex items-center mb-6">
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className={`p-3 rounded-lg bg-gradient-to-r ${category.color} mr-4 transition-transform duration-200`}
                   >
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-3 flex-shrink-0`}></div>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {skill}
-                    </span>
+                    <category.icon className="w-6 h-6 text-white" />
                   </motion.div>
-                ))}
-              </div>
-            </motion.div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {category.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Expertise Level</p>
+                  </div>
+                </div>
+              
+                <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: skillIndex * 0.05 }}
+                      whileHover={{ x: 5, scale: 1.05 }}
+                      className="flex items-center group/skill"
+                    >
+                      <motion.div 
+                        whileHover={{ scale: 1.5 }}
+                        className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color} mr-3 flex-shrink-0 transition-transform duration-200`}
+                      />
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover/skill:text-gray-900 dark:group-hover/skill:text-white transition-colors duration-200">
+                        {skill}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+                <motion.div 
+                  className={`mt-6 h-1 w-0 bg-gradient-to-r ${category.color} rounded-full group-hover:w-full transition-all duration-700`}
+                />
+              </motion.div>
+            </SectionTransition>
           ))}
         </div>
 
         {/* AI & Innovation Focus */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mb-12"
-        >
+        <SectionTransition direction="up" delay={0.4} className="text-center mb-12">
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             AI & Innovation Focus
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-400">
             Specialized expertise in artificial intelligence and cutting-edge technologies
           </p>
-        </motion.div>
+        </SectionTransition>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {aiSpecialties.map((specialty, index) => (
-            <motion.div
+            <SectionTransition
               key={specialty.title}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+              direction="scale"
+              delay={0.6 + index * 0.1}
             >
-              <div className={`inline-flex p-4 rounded-full bg-gradient-to-r ${specialty.color} mb-4`}>
-                <specialty.icon className="w-8 h-8 text-white" />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                {specialty.title}
-              </h4>
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium">
-                🚀 {specialty.level}
-              </div>
-            </motion.div>
+              <motion.div
+                whileHover={{ y: -8, scale: 1.05, rotateY: 10 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center cursor-pointer border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className={`inline-flex p-4 rounded-full bg-gradient-to-r ${specialty.color} mb-4 transition-transform duration-200`}
+                >
+                  <specialty.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {specialty.title}
+                </h4>
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium transition-transform duration-200"
+                >
+                  🚀 {specialty.level}
+                </motion.div>
+                <motion.div 
+                  className={`mt-4 h-1 w-0 bg-gradient-to-r ${specialty.color} rounded-full group-hover:w-full transition-all duration-500 mx-auto`}
+                />
+              </motion.div>
+            </SectionTransition>
           ))}
         </div>
       </div>

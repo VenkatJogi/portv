@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import SectionTransition from './SectionTransition';
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -61,13 +62,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Get in Touch
           </h2>
@@ -76,15 +71,11 @@ const Contact: React.FC = () => {
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
-        </motion.div>
+        </SectionTransition>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <SectionTransition direction="left" delay={0.2}>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
               Let's Start a Conversation
             </h3>
@@ -96,59 +87,65 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <motion.div
+                <SectionTransition
                   key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="group"
+                  direction="up"
+                  delay={0.4 + index * 0.1}
                 >
-                  <a
-                    href={info.href}
-                    className="flex items-center p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-600"
-                    className="flex items-center p-6 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
+                  <motion.div
+                    whileHover={{ x: 8, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group"
                   >
-                    <div className={`p-4 rounded-xl bg-gradient-to-r ${info.color} mr-6 group-hover:scale-110 transition-transform duration-200`}>
-                      <info.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                        {info.label}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        {info.value}
-                      </p>
-                    </div>
-                  </a>
-                </motion.div>
+                    <a
+                      href={info.href}
+                      className="flex items-center p-6 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
+                    >
+                      <motion.div 
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        className={`p-4 rounded-xl bg-gradient-to-r ${info.color} mr-6 transition-transform duration-200`}
+                      >
+                        <info.icon className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                          {info.label}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                          {info.value}
+                        </p>
+                      </div>
+                    </a>
+                    <motion.div 
+                      className={`mt-2 h-1 w-0 bg-gradient-to-r ${info.color} rounded-full group-hover:w-full transition-all duration-500`}
+                    />
+                  </motion.div>
+                </SectionTransition>
               ))}
             </div>
 
             {/* Additional Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-blue-900/20 rounded-2xl"
-            >
+            <SectionTransition direction="up" delay={0.8} className="mt-8">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -2 }}
+                className="p-6 bg-gradient-to-r from-blue-50/90 to-purple-50/90 dark:from-gray-800/90 dark:to-blue-900/30 backdrop-blur-sm rounded-2xl border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-200 dark:hover:border-blue-400 transition-all duration-300"
+              >
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 Response Time
               </h4>
               <p className="text-gray-600 dark:text-gray-300">
                 I typically respond within 24 hours. For urgent matters, feel free to call directly.
               </p>
-            </motion.div>
-          </motion.div>
+              </motion.div>
+            </SectionTransition>
+          </SectionTransition>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-600"
-            className="bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-600"
-          >
+          <SectionTransition direction="right" delay={0.4}>
+            <motion.div
+              whileHover={{ scale: 1.01, y: -5 }}
+              className="bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-300"
+            >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -217,7 +214,7 @@ const Contact: React.FC = () => {
               <motion.button
                 type="submit"
                 disabled={!isFormValid || formStatus === 'sending'}
-                whileHover={{ scale: isFormValid ? 1.02 : 1 }}
+                whileHover={{ scale: isFormValid ? 1.05 : 1, y: isFormValid ? -2 : 0 }}
                 whileTap={{ scale: isFormValid ? 0.98 : 1 }}
                 className={`w-full flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 ${
                   isFormValid && formStatus !== 'sending'
@@ -258,16 +255,16 @@ const Contact: React.FC = () => {
                 </motion.div>
               )}
             </form>
-          </motion.div>
+            </motion.div>
+          </SectionTransition>
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-center mt-16"
-        >
+        <SectionTransition direction="scale" delay={1.0} className="text-center mt-16">
+          <motion.div
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="transition-transform duration-300"
+          >
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 md:p-12 rounded-3xl text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Something Amazing?
@@ -279,7 +276,7 @@ const Contact: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
                 href="mailto:ritishjogi@outlook.com"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
@@ -288,7 +285,7 @@ const Contact: React.FC = () => {
               </motion.a>
               <motion.a
                 href="tel:+917075073344"
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
               >
@@ -297,7 +294,8 @@ const Contact: React.FC = () => {
               </motion.a>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </SectionTransition>
       </div>
     </section>
   );

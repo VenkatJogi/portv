@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { TrendingUp, Users, Clock, Target, BookOpen, Lightbulb } from 'lucide-react';
+import SectionTransition from './SectionTransition';
 
 const Strengths: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -69,13 +70,7 @@ const Strengths: React.FC = () => {
   return (
     <section id="strengths" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Core Competencies
           </h2>
@@ -83,30 +78,155 @@ const Strengths: React.FC = () => {
             Strengths that drive success and enable exceptional results
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
-        </motion.div>
+        </SectionTransition>
 
         {/* Strengths Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {strengths.map((strength, index) => (
-            <motion.div
+            <SectionTransition
               key={strength.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
+              direction="up"
+              delay={index * 0.1}
             >
-              {/* Icon and Stats */}
-              <div className="flex items-start justify-between mb-6">
-                <div className={`p-4 rounded-2xl bg-gradient-to-r ${strength.color} group-hover:scale-110 transition-transform duration-200`}>
-                  <strength.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-right">
-                  <div className={`text-2xl font-bold bg-gradient-to-r ${strength.color} bg-clip-text text-transparent`}>
-                    {strength.stats.value}
+              <motion.div
+                whileHover={{ y: -10, scale: 1.03, rotateY: 5 }}
+                whileTap={{ scale: 0.98 }}
+                className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+              >
+                {/* Icon and Stats */}
+                <div className="flex items-start justify-between mb-6">
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className={`p-4 rounded-2xl bg-gradient-to-r ${strength.color} transition-transform duration-200`}
+                  >
+                    <strength.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  <div className="text-right">
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      className={`text-2xl font-bold bg-gradient-to-r ${strength.color} bg-clip-text text-transparent transition-transform duration-200`}
+                    >
+                      {strength.stats.value}
+                    </motion.div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                      {strength.stats.label}
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                    {strength.stats.label}
+                </div>
+
+                {/* Title and Subtitle */}
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {strength.title}
+                  </h3>
+                  <p className={`text-sm font-semibold bg-gradient-to-r ${strength.color} bg-clip-text text-transparent`}>
+                    {strength.subtitle}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                  {strength.description}
+                </p>
+
+                {/* Decorative Element */}
+                <motion.div 
+                  className={`mt-6 h-1 w-0 bg-gradient-to-r ${strength.color} rounded-full group-hover:w-full transition-all duration-700`}
+                />
+              </motion.div>
+            </SectionTransition>
+          ))}
+        </div>
+
+        {/* Core Values Section */}
+        <SectionTransition direction="up" delay={0.6} className="text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+            Core Values & Principles
+          </h3>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {coreValues.map((value, index) => (
+              <SectionTransition
+                key={value}
+                direction="scale"
+                delay={0.8 + index * 0.1}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.08, y: -5, rotateY: 10 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group bg-gradient-to-br from-blue-50/90 to-purple-50/90 dark:from-gray-800/90 dark:to-blue-900/30 backdrop-blur-sm p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center cursor-pointer border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-200 dark:hover:border-blue-400"
+                >
+                  <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    {value}
+                  </div>
+                  <motion.div 
+                    className="mt-2 h-0.5 w-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-full transition-all duration-500 mx-auto"
+                  />
+                </motion.div>
+              </SectionTransition>
+            ))}
+          </div>
+        </SectionTransition>
+
+        {/* Quote Section */}
+        <SectionTransition direction="scale" delay={0.8} className="mt-16">
+          <motion.div
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 md:p-12 rounded-3xl text-center text-white cursor-pointer transition-transform duration-300"
+          >
+            <motion.div 
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              className="text-6xl mb-4 opacity-20"
+            >
+              "
+            </motion.div>
+            <blockquote className="text-xl md:text-2xl font-light italic mb-6 max-w-4xl mx-auto leading-relaxed">
+              Success in technology leadership comes from the perfect blend of technical expertise, 
+              strategic thinking, and the ability to inspire teams to achieve extraordinary results.
+            </blockquote>
+            <div className="text-lg font-semibold">
+              — Ritish Jogi
+            </div>
+            <div className="text-sm opacity-80 mt-1">
+              Technical Lead & AI Enthusiast
+            </div>
+          </motion.div>
+        </SectionTransition>
+
+        {/* Mentorship CTA */}
+        <SectionTransition direction="up" delay={1.0} className="mt-16 text-center">
+          <motion.div
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-3xl border border-gray-200 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-300"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Interested in Mentorship?
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+              I'm passionate about sharing knowledge and helping others grow in their tech careers. 
+              Reach out if you're looking for guidance in AI, full-stack development, or leadership.
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.08, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+            >
+              <motion.div whileHover={{ scale: 1.2 }}>
+                <Users className="w-5 h-5 mr-2" />
+              </motion.div>
+              Connect for Mentorship
+            </motion.button>
+          </motion.div>
+        </SectionTransition>
+      </div>
+    </section>
+  );
+};
+
+export default Strengths;
                   </div>
                 </div>
               </div>

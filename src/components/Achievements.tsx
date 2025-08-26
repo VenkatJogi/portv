@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Award, Trophy, Star, Medal, Crown, Target } from 'lucide-react';
+import SectionTransition from './SectionTransition';
 
 const Achievements: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -83,13 +84,7 @@ const Achievements: React.FC = () => {
   return (
     <section id="achievements" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Recognition & Awards
           </h2>
@@ -97,73 +92,88 @@ const Achievements: React.FC = () => {
             Achievements that reflect excellence in technology, leadership, and innovation
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
-        </motion.div>
+        </SectionTransition>
 
         {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
+        <SectionTransition direction="scale" delay={0.2} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
-            <motion.div
+            <SectionTransition
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              direction="scale"
+              delay={0.3 + index * 0.1}
             >
-              <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
-                {stat.number}
-              </div>
-              <div className="text-gray-600 dark:text-gray-300 font-medium">
-                {stat.label}
-              </div>
-            </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.08, y: -8, rotateY: 10 }}
+                whileTap={{ scale: 0.95 }}
+                className="group text-center p-6 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 transition-transform duration-200`}
+                >
+                  {stat.number}
+                </motion.div>
+                <div className="text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
+                  {stat.label}
+                </div>
+                <motion.div 
+                  className={`mt-4 h-1 w-0 bg-gradient-to-r ${stat.color} rounded-full group-hover:w-full transition-all duration-500 mx-auto`}
+                />
+              </motion.div>
+            </SectionTransition>
           ))}
-        </motion.div>
+        </SectionTransition>
 
         {/* Awards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {achievements.map((achievement, index) => (
-            <motion.div
+            <SectionTransition
               key={achievement.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
+              direction="up"
+              delay={0.4 + index * 0.1}
             >
-              {/* Icon and Year */}
-              <div className="flex items-center justify-between mb-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-r ${achievement.color} group-hover:scale-110 transition-transform duration-200`}>
-                  <achievement.icon className="w-6 h-6 text-white" />
+              <motion.div
+                whileHover={{ y: -10, scale: 1.03, rotateY: 5 }}
+                whileTap={{ scale: 0.98 }}
+                className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+              >
+                {/* Icon and Year */}
+                <div className="flex items-center justify-between mb-4">
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className={`p-3 rounded-xl bg-gradient-to-r ${achievement.color} transition-transform duration-200`}
+                  >
+                    <achievement.icon className="w-6 h-6 text-white" />
+                  </motion.div>
+                  <motion.span 
+                    whileHover={{ scale: 1.1 }}
+                    className="text-sm font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded-full transition-transform duration-200"
+                  >
+                    {achievement.year}
+                  </motion.span>
                 </div>
-                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded-full">
-                  {achievement.year}
-                </span>
-              </div>
 
-              {/* Title */}
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                {achievement.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {achievement.title}
+                </h3>
 
-              {/* Organization */}
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-3">
-                {achievement.organization}
-              </p>
+                {/* Organization */}
+                <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm mb-3">
+                  {achievement.organization}
+                </p>
 
-              {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                {achievement.description}
-              </p>
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                  {achievement.description}
+                </p>
 
-              {/* Decorative Element */}
-              <div className={`mt-4 h-1 w-full bg-gradient-to-r ${achievement.color} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </motion.div>
+                {/* Decorative Element */}
+                <motion.div 
+                  className={`mt-4 h-1 w-0 bg-gradient-to-r ${achievement.color} rounded-full group-hover:w-full transition-all duration-500`}
+                />
+              </motion.div>
+            </SectionTransition>
           ))}
         </div>
 
