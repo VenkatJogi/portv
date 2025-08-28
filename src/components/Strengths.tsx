@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { Target, Lightbulb, Users, Zap } from 'lucide-react';
-import { SectionTransition } from './SectionTransition';
+import SectionTransition from './SectionTransition';
 
 const strengths = [
   {
