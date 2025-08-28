@@ -76,7 +76,7 @@ const Certifications: React.FC = () => {
   const categories = [...new Set(certifications.map(cert => cert.category))];
 
   return (
-    <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="certifications" className="py-20 bg-gradient-to-br from-indigo-50/80 via-gray-50/80 to-purple-50/80 dark:from-gray-800/80 dark:via-gray-700/80 dark:to-indigo-900/80">
       <div className="container mx-auto px-6">
         <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">

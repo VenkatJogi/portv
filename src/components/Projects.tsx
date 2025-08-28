@@ -82,7 +82,7 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === selectedFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-20 bg-gradient-to-br from-green-50/80 via-gray-50/80 to-teal-50/80 dark:from-gray-800/80 dark:via-gray-700/80 dark:to-green-900/80">
       <div className="container mx-auto px-6">
         <SectionTransition direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
