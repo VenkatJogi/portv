@@ -88,31 +88,45 @@ const Certifications: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
         </SectionTransition>
 
-        {/* Category Statistics */}
-        <SectionTransition direction="scale" delay={0.2} className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, index) => {
-            const count = certifications.filter(cert => cert.category === category).length;
-            return (
-              <SectionTransition
-                key={category}
-                direction="scale"
-                delay={0.3 + index * 0.1}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.08, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-white/90 dark:bg-gray-700/90 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500"
-                >
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {category} ({count})
-                  </span>
-                </motion.div>
-              </SectionTransition>
-            );
-          })}
-        </SectionTransition>
+        {/* Professional Development Summary */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-blue-900/20 p-8 rounded-3xl text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Commitment to Excellence
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              These certifications represent my ongoing commitment to staying at the forefront of technology, 
+              continuously expanding my knowledge in AI, cloud computing, data science, and software development 
+              to deliver cutting-edge solutions.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">7</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Active Certifications</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">4</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Microsoft Certified</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">5+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Years Learning</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">100%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Verified</div>
+              </div>
+            </div>
+          </div>
+        </motion.div> */}
 
-        {/* Certifications Grid */}
+        {/* Certifications Grid - Now at the bottom */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert, index) => (
             <SectionTransition
@@ -187,7 +201,7 @@ const Certifications: React.FC = () => {
                   </div>
 
                   {/* Verify Button */}
-                  <motion.button
+                  {/*<motion.button
                     whileHover={{ scale: 1.08, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className={`w-full inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r ${cert.color} text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-200`}
@@ -196,7 +210,7 @@ const Certifications: React.FC = () => {
                       <ExternalLink className="w-4 h-4 mr-2" />
                     </motion.div>
                     Verify Certificate
-                  </motion.button>
+                  </motion.button>*/}
                 </div>
                 <motion.div 
                   className={`h-1 w-0 bg-gradient-to-r ${cert.color} group-hover:w-full transition-all duration-700`}
@@ -205,44 +219,6 @@ const Certifications: React.FC = () => {
             </SectionTransition>
           ))}
         </div>
-
-        {/* Professional Development Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16"
-        >
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-blue-900/20 p-8 rounded-3xl text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Commitment to Excellence
-            </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              These certifications represent my ongoing commitment to staying at the forefront of technology, 
-              continuously expanding my knowledge in AI, cloud computing, data science, and software development 
-              to deliver cutting-edge solutions.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">7</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Active Certifications</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">4</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Microsoft Certified</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">5+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Years Learning</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">100%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Verified</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
