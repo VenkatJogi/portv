@@ -33,7 +33,7 @@ export default function Strengths() {
 
   return (
     <SectionTransition direction="up">
-      <section ref={ref} className="py-20 bg-white/5 backdrop-blur-sm">
+      <section ref={ref} id="strengths" className="py-20 bg-gradient-to-br from-pink-50/80 via-white/80 to-rose-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-pink-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
