@@ -9,7 +9,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
-import Strengths from './components/Strengths';
+// import Strengths from './components/Strengths';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -27,7 +27,7 @@ function App() {
           <Projects />
           <Achievements />
           <Certifications />
-          <Strengths />
+          {/* <Strengths /> */}
           <Contact />
         </main>
         <Footer />

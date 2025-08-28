@@ -66,10 +66,10 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Get in Touch
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          {/* <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             I'm always interested in hearing about new projects and opportunities. 
             Whether you have a question or just want to say hi, feel free to reach out!
-          </p>
+          </p> */}
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
         </SectionTransition>
 
@@ -79,11 +79,11 @@ const Contact: React.FC = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
               Let's Start a Conversation
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+            {/* <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
               Ready to transform your ideas into innovative solutions? I'd love to discuss your project, 
               explore collaboration opportunities, or share insights about AI, full-stack development, 
               and technology leadership.
-            </p>
+            </p> */}
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (

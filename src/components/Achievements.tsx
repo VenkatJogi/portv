@@ -95,7 +95,7 @@ const Achievements: React.FC = () => {
         </SectionTransition>
 
         {/* Stats Section */}
-        <SectionTransition direction="scale" delay={0.2} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        {/* <SectionTransition direction="scale" delay={0.2} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
             <SectionTransition
               key={stat.label}
@@ -122,7 +122,7 @@ const Achievements: React.FC = () => {
               </motion.div>
             </SectionTransition>
           ))}
-        </SectionTransition>
+        </SectionTransition> */}
 
         {/* Awards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -178,7 +178,7 @@ const Achievements: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -201,7 +201,7 @@ const Achievements: React.FC = () => {
               <Award className="w-5 h-5 ml-2" />
             </motion.button>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -10,12 +10,25 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       title: "Technical Lead",
+      company: "Blend 360",
+      client: "CDW",
+      location: "Hyderabad, India",
+      period: "July 2025 - Present",
+      type: "current",
+      achievements: [
+        "Designed and implemented scalable PySpark data pipelines to extract, clean, and unify fragmented customer data across multiple sources (Salesforce, CDW.com, email, and third-party systems), enabling the creation of Golden Contact and Individual IDs (GCI/GII).",
+        "Applied machine learning models on enriched identity profiles to predict customer personas and enable advanced segmentation, personalization, and multi-touch attribution across marketing and sales channels.",
+        "Operationalized the AI-ready Golden Contact ID platform by integrating pipelines and ML outputs into Microsoft Fabric, improving data governance, marketing activation, and omni-channel attribution for enterprise-scale customer identity resolution."
+      ]
+    },
+    {
+      title: "Technical Lead",
       company: "Quadrant Technologies",
       client: "Microsoft",
       location: "Hyderabad, India",
-      period: "March 2024 - Present",
+      period: "March 2024 - May 2025",
       team: "40+ People",
-      type: "current",
+      type: "past",
       achievements: [
         "Developed and deployed innovative platforms integrating React JS, SQL, and Cosmos DB to deliver embedded analytics with custom insights",
         "Built automation tools like M.O.N.I.T.O.R. to optimize PR reviews, a chatbot using OpenAI APIs for querying PSDL data, and Flask apps for predictive modeling",
@@ -70,6 +83,39 @@ const Experience: React.FC = () => {
         "Built Internal Job Portal Application (Web & Android App)",
         "Responsible for end-to-end application development and deployment",
         "Technologies used: HTML, PHP, IONIC, MySQL, Android Studio"
+      ]
+    },
+    {
+      title: "Community Leader",
+      company: "Microsoft AI Innovators Hub",
+      location: "Hyderabad, India", 
+      period: "March 2024 - Present",
+      type: "Current",
+      achievements: [
+        "3000+ Community and 31+ Event as on Aug 15th",
+        "Ledding and participated in AI & Data community initiatives through Microsoft AI Innovators Hub, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
+      ]
+    },
+     {
+      title: "Community Leader",
+      company: "Global AI Hyderabad",
+      location: "Hyderabad, India", 
+      period: "March 2024 - Present",
+      type: "Current",
+      achievements: [
+        "2000+ Community and 31+ Event as on Aug 15th",
+        "Ledding and participated in AI & Data community initiatives through Global AI Hyderabad, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
+      ]
+    },
+     {
+      title: "Community Leader",
+      company: "Global AI Puducherry",
+      location: "Hyderabad, India", 
+      period: "March 2024 - Present",
+      type: "Current",
+      achievements: [
+        "500+ Community and 3+ Event as on Aug 15th",
+        "Ledding and participated in AI & Data community initiatives through Global AI Puducherry, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
       ]
     }
   ];

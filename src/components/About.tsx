@@ -23,21 +23,21 @@ const About: React.FC = () => {
       title: "Team Leadership",
       description: "Proven ability to lead cross-functional teams, foster collaboration, and deliver high-impact results."
     },
-    {
-      icon: Lightbulb,
-      title: "Innovation Driver",
-      description: "Constantly exploring new technologies and methodologies to create cutting-edge solutions."
-    },
-    {
-      icon: Puzzle,
-      title: "Problem Solver",
-      description: "Specialized in identifying complex challenges and developing strategic, scalable solutions."
-    },
-    {
-      icon: Handshake,
-      title: "Collaborative Leader",
-      description: "Building strong partnerships and fostering environments where teams thrive and innovate together."
-    }
+    // {
+    //   icon: Lightbulb,
+    //   title: "Innovation Driver",
+    //   description: "Constantly exploring new technologies and methodologies to create cutting-edge solutions."
+    // },
+    // {
+    //   icon: Puzzle,
+    //   title: "Problem Solver",
+    //   description: "Specialized in identifying complex challenges and developing strategic, scalable solutions."
+    // },
+    // {
+    //   icon: Handshake,
+    //   title: "Collaborative Leader",
+    //   description: "Building strong partnerships and fostering environments where teams thrive and innovate together."
+    // }
   ];
 
   return (
@@ -91,7 +91,7 @@ const About: React.FC = () => {
             </h3>
             <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               <p>
-                With over <span className="font-semibold text-blue-600 dark:text-blue-400">7+ years of experience</span> in full stack development and AI, 
+                With over <span className="font-semibold text-blue-600 dark:text-blue-400">8+ years of experience</span> in full stack development and AI, 
                 I specialize in creating intelligent solutions that combine cutting-edge technology with practical business applications.
               </p>
               <p>

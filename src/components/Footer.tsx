@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
               onClick={scrollToTop}
               className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 cursor-pointer inline-block"
             >
-              RJ.AI
+              Venkat Jogi
             </motion.div>
             
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
               Specializing in full-stack development, AI integration, and team leadership.
             </p>
 
-            <div className="space-y-3 mb-6">
+            {/* <div className="space-y-3 mb-6">
               <div className="flex items-center text-gray-300">
                 <Mail className="w-5 h-5 mr-3 text-blue-400" />
                 <a href="mailto:ritishjogi@outlook.com" className="hover:text-blue-400 transition-colors duration-200">
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                 <MapPin className="w-5 h-5 mr-3 text-purple-400" />
                 <span>Hyderabad, India</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Links */}
             <div className="flex space-x-4">
@@ -157,11 +157,11 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center text-gray-300 mb-4 md:mb-0">
-              <span>© {currentYear} Ritish Jogi. Made with</span>
-              <Heart className="w-4 h-4 mx-1 text-red-400 fill-current" />
+              <span>© {currentYear} Venkat Jogi. </span>
+              {/* <Heart className="w-4 h-4 mx-1 text-red-400 fill-current" />
               <span>and</span>
               <Code className="w-4 h-4 mx-1 text-blue-400" />
-              <span>in India</span>
+              <span>in India</span> */}
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-gray-400">

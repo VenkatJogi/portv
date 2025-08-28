@@ -167,16 +167,16 @@ const Skills: React.FC = () => {
         </div>
 
         {/* AI & Innovation Focus */}
-        <SectionTransition direction="up" delay={0.4} className="text-center mb-12">
+        {/* <SectionTransition direction="up" delay={0.4} className="text-center mb-12">
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             AI & Innovation Focus
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-400">
             Specialized expertise in artificial intelligence and cutting-edge technologies
           </p>
-        </SectionTransition>
+        </SectionTransition> */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {aiSpecialties.map((specialty, index) => (
             <SectionTransition
               key={specialty.title}
@@ -209,7 +209,7 @@ const Skills: React.FC = () => {
               </motion.div>
             </SectionTransition>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

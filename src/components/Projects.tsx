@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
         </SectionTransition>
 
         {/* Filter Buttons */}
-        <SectionTransition direction="scale" delay={0.2} className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* <SectionTransition direction="scale" delay={0.2} className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <motion.button
               key={category}
@@ -112,7 +112,7 @@ const Projects: React.FC = () => {
               {category}
             </motion.button>
           ))}
-        </SectionTransition>
+        </SectionTransition> */}
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -179,7 +179,7 @@ const Projects: React.FC = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-3">
+                    {/* <div className="flex gap-3">
                       <motion.button
                         whileHover={{ scale: 1.08, y: -2 }}
                         whileTap={{ scale: 0.95 }}
@@ -200,7 +200,7 @@ const Projects: React.FC = () => {
                         </motion.div>
                         Code
                       </motion.button>
-                    </div>
+                    </div> */}
                   </div>
                   <motion.div 
                     className={`h-1 w-0 bg-gradient-to-r ${project.gradient} group-hover:w-full transition-all duration-700`}

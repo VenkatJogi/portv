@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
             
           <SectionTransition direction="up" duration={0.8} delay={0.9}>
             <p className="text-lg text-gray-700 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Full-Stack Development | AI Chatbot Development & Automation | Data Flow Automation using Power Platform tools | 
+              Full-Stack Development | Data Engineer | AI Chatbot Development & Automation | Data Flow Automation using Power Platform tools | 
               Embedded Analytics and Dashboard Development | Project Leadership & Cross-Functional Team Management
             </p>
           </SectionTransition>
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             </motion.button>
           </SectionTransition>
 
-          <SectionTransition direction="up" duration={0.8} delay={1.5} className="flex flex-wrap justify-center gap-3">
+          {/* <SectionTransition direction="up" duration={0.8} delay={1.5} className="flex flex-wrap justify-center gap-3">
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech}
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
                 {tech}
               </motion.div>
             ))}
-          </SectionTransition>
+          </SectionTransition> */}
         </div>
       </div>
     </section>
