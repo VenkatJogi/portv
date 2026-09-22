@@ -11,14 +11,16 @@ const Experience: React.FC = () => {
     {
       title: "Technical Lead",
       company: "Blend 360",
-      client: "CDW",
+      client: "CDW, STEM & Charter",
       location: "Hyderabad, India",
       period: "July 2025 - Present",
       type: "current",
       achievements: [
         "Designed and implemented scalable PySpark data pipelines to extract, clean, and unify fragmented customer data across multiple sources (Salesforce, CDW.com, email, and third-party systems), enabling the creation of Golden Contact and Individual IDs (GCI/GII).",
         "Applied machine learning models on enriched identity profiles to predict customer personas and enable advanced segmentation, personalization, and multi-touch attribution across marketing and sales channels.",
-        "Operationalized the AI-ready Golden Contact ID platform by integrating pipelines and ML outputs into Microsoft Fabric, improving data governance, marketing activation, and omni-channel attribution for enterprise-scale customer identity resolution."
+        "Operationalized the AI-ready Golden Contact ID platform by integrating pipelines and ML outputs into Microsoft Fabric, improving data governance, marketing activation, and omni-channel attribution for enterprise-scale customer identity resolution.",
+        "Designed and developed the STEM-AI healthcare conversation intelligence pipeline to transcribe and analyze representative and healthcare professional call recordings, generating sentiment, KPI, soft-skill, compliance, and AI-powered coaching insights.",
+        "Architected secure, event-driven microservices using Azure Container Apps and Azure Service Bus, with PII/PHI anonymization, multilingual processing, audit tracking, and scalable orchestration across the complete call-analysis lifecycle."
       ]
     },
     {

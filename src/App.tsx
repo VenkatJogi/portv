@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
+import CommunityContributions from './components/CommunityContributions';
 import Certifications from './components/Certifications';
 // import Strengths from './components/Strengths';
 import Contact from './components/Contact';
@@ -26,6 +27,7 @@ function App() {
           <Experience />
           <Projects />
           <Achievements />
+          <CommunityContributions />
           <Certifications />
           {/* <Strengths /> */}
           <Contact />

@@ -72,6 +72,62 @@ const Projects: React.FC = () => {
       category: "E-commerce",
       technologies: ["HTML5", "CSS3", "Ionic", "JavaScript", "Node.js", "MySQL"],
       gradient: "from-rose-500 to-pink-500"
+    },
+    {
+      id: 9,
+      title: "Identity Resolution – GCI",
+      description: "Designed an end-to-end Microsoft Fabric medallion architecture to consolidate enterprise contact data. Integrated Zingg ML entity resolution to identify duplicates, create persistent Golden Contact IDs, and publish governed Customer 360 records with confidence scores and lineage.",
+      category: "Data Engineering",
+      technologies: ["Microsoft Fabric", "PySpark", "Zingg", "SQL", "Data Factory", "Delta Tables", "MDM", "Customer 360"],
+      gradient: "from-sky-500 to-blue-600"
+    },
+    {
+      id: 10,
+      title: "Blend360 Enterprise Data Intelligence Platform",
+      description: "Developed an AI-powered conversational analytics platform with specialized agents for KPI generation, data quality, schema understanding, relationship mapping, executive summaries, and natural-language queries. Deployed it through the Snowflake Native App Framework and achieved a Top 3 finish in the BlendXcelerator Innovation Challenge.",
+      category: "Agentic AI",
+      technologies: ["Snowflake Cortex AI", "Snowpark", "Python", "React", "TypeScript", "Docker", "SQL", "Multi-Agent AI"],
+      gradient: "from-cyan-500 to-indigo-600"
+    },
+    {
+      id: 11,
+      title: "Clarity – Multi-Agent Marketing Intelligence",
+      description: "Architected a multi-agent marketing intelligence platform that delivers persona-based insights through collaborative AI agents. Built the backend, AI orchestration, APIs, and React dashboard for campaign analysis, segmentation, KPI generation, executive summaries, and recommendations.",
+      category: "Agentic AI",
+      technologies: ["Snowflake Cortex AI", "Python", "React", "TypeScript", "REST APIs", "SQL", "Prompt Engineering", "Docker"],
+      gradient: "from-violet-500 to-fuchsia-600"
+    },
+    {
+      id: 12,
+      title: "Stem-AI – AI Analysis and Recording Tool",
+      description: "Built an event-driven AI pipeline for healthcare call recordings, covering transcription, language standardization, PII/PHI anonymization, translation, sentiment analysis, KPI extraction, soft-skill evaluation, and coaching recommendations with full audit tracking.",
+      category: "Conversational AI",
+      technologies: ["Python", "Azure Container Apps", "Azure Service Bus", "Azure Blob Storage", "Azure OpenAI", "FastAPI", "Docker", "NLP"],
+      gradient: "from-emerald-500 to-cyan-600"
+    },
+    {
+      id: 13,
+      title: "Project & HR Management Tool",
+      description: "Led requirements, UI mock-ups, design, and development of a project and HR management platform, including its DevOps and deployment pipelines.",
+      category: "Management Tool",
+      technologies: ["React Js", "Node Js", "HTML5", "CSS3", "MySQL", "DevOps"],
+      gradient: "from-amber-500 to-orange-600"
+    },
+    {
+      id: 14,
+      title: "School Management Application",
+      description: "Designed and developed a school management application from requirements and UI mock-ups through deployment, with web and mobile-ready experiences and automated delivery pipelines.",
+      category: "Education",
+      technologies: ["Angular", "Ionic", "JavaScript", "Node.js", "PHP", "Ajax", "MySQL"],
+      gradient: "from-lime-500 to-green-600"
+    },
+    {
+      id: 15,
+      title: "Internal Job Portal",
+      description: "Developed an internal recruitment portal with web and Android applications to support organizational hiring workflows.",
+      category: "HR Technology",
+      technologies: ["HTML", "PHP", "Ionic", "MySQL", "Android Studio"],
+      gradient: "from-pink-500 to-rose-600"
     }
   ];
 

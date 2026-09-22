@@ -9,22 +9,107 @@ const Certifications: React.FC = () => {
 
   const certifications = [
     {
+      title: "API Deployment Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 15, 2026",
+      category: "API Deployment",
+      color: "from-emerald-500 to-teal-500",
+      description: "Practitioner credential focused on deploying production-ready API solutions",
+      skills: ["API Deployment", "OpenAI", "Production AI"]
+    },
+    {
+      title: "ChatGPT Solutions Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 15, 2026",
+      category: "AI Solutions",
+      color: "from-green-500 to-emerald-500",
+      description: "Practitioner credential for designing effective solutions with ChatGPT",
+      skills: ["ChatGPT", "Solution Design", "Generative AI"]
+    },
+    {
+      title: "ChatGPT Deployment Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 16, 2026",
+      category: "AI Deployment",
+      color: "from-teal-500 to-cyan-500",
+      description: "Practitioner credential for deploying ChatGPT-powered applications",
+      skills: ["ChatGPT", "Deployment", "AI Applications"]
+    },
+    {
+      title: "Codex Solutions Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 16, 2026",
+      category: "AI Development",
+      color: "from-cyan-500 to-blue-500",
+      description: "Practitioner credential for building software solutions with Codex",
+      skills: ["Codex", "Software Engineering", "AI Solutions"]
+    },
+    {
+      title: "Codex Deployment Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 14, 2026",
+      category: "AI Deployment",
+      color: "from-blue-500 to-indigo-500",
+      description: "Practitioner credential for deploying Codex-powered development workflows",
+      skills: ["Codex", "Deployment", "Developer Tools"]
+    },
+    {
+      title: "OpenAI Foundational Knowledge",
+      issuer: "OpenAI",
+      year: "Sep 14, 2026",
+      category: "AI Fundamentals",
+      color: "from-violet-500 to-purple-500",
+      description: "Foundational credential covering OpenAI concepts, products, and responsible use",
+      skills: ["OpenAI", "AI Foundations", "Responsible AI"],
+      credentialId: "407952609"
+    },
+    {
+      title: "OpenAI Technical Practitioner",
+      issuer: "OpenAI",
+      year: "Sep 14, 2026",
+      category: "AI Engineering",
+      color: "from-purple-500 to-fuchsia-500",
+      description: "Technical practitioner credential for implementing solutions with OpenAI technologies",
+      skills: ["OpenAI APIs", "AI Engineering", "Integration"]
+    },
+    {
+      title: "Claude Partner Badge – Claude Code",
+      issuer: "Anthropic",
+      year: "Sep 11, 2026",
+      category: "AI Development",
+      color: "from-orange-500 to-amber-500",
+      description: "Partner badge demonstrating proficiency with Claude Code for software development",
+      skills: ["Claude Code", "Agentic Coding", "Anthropic"]
+    },
+    {
+      title: "Academy Accreditation – AI Agent Fundamentals",
+      issuer: "Databricks",
+      year: "Mar 2026",
+      category: "Agentic AI",
+      color: "from-red-500 to-orange-500",
+      description: "Databricks academy accreditation in the foundations of AI agents",
+      skills: ["AI Agents", "Databricks", "Agentic AI"],
+      credentialId: "177631013"
+    },
+    {
       title: "Microsoft Certified: Azure Data Scientist Associate",
       issuer: "Microsoft",
-      year: "2025",
+      year: "Date not specified",
       category: "Data Science",
       color: "from-blue-500 to-cyan-500",
       description: "Advanced certification in Azure Machine Learning and data science workflows",
-      skills: ["Machine Learning", "Azure ML", "Data Science", "Python", "R"]
+      skills: ["Machine Learning", "Azure ML", "Data Science", "Python", "R"],
+      credentialId: "69E33855CE89CBB8"
     },
     {
       title: "Microsoft Certified: Azure AI Engineer Associate", 
       issuer: "Microsoft",
-      year: "2024",
+      year: "Date not specified",
       category: "AI Engineering",
       color: "from-purple-500 to-pink-500",
       description: "Expertise in designing and implementing AI solutions on Microsoft Azure",
-      skills: ["AI Solutions", "Cognitive Services", "Bot Framework", "Azure AI"]
+      skills: ["AI Solutions", "Cognitive Services", "Bot Framework", "Azure AI"],
+      credentialId: "A198396D817D0422"
     },
     {
       title: "Microsoft Certified: Azure AI Fundamentals",
@@ -33,7 +118,8 @@ const Certifications: React.FC = () => {
       category: "AI Fundamentals",
       color: "from-green-500 to-teal-500",
       description: "Foundation knowledge in artificial intelligence and machine learning concepts",
-      skills: ["AI Concepts", "ML Fundamentals", "Azure AI Services"]
+      skills: ["AI Concepts", "ML Fundamentals", "Azure AI Services"],
+      credentialId: "B4C78A0DCB1010D1"
     },
     {
       title: "Microsoft Certified: Fabric Analytics Engineer Associate",
@@ -42,11 +128,12 @@ const Certifications: React.FC = () => {
       category: "Data Analytics",
       color: "from-orange-500 to-red-500",
       description: "Advanced analytics engineering with Microsoft Fabric platform",
-      skills: ["Microsoft Fabric", "Data Engineering", "Analytics", "Power BI"]
+      skills: ["Microsoft Fabric", "Data Engineering", "Analytics", "Power BI"],
+      credentialId: "4B0566B1F4A731A5"
     },
     {
       title: "Certified Full Stack Development",
-      issuer: "Sagar Software Solutions",
+      issuer: "Professional Certification",
       year: "2021",
       category: "Development",
       color: "from-indigo-500 to-purple-500",
@@ -55,7 +142,7 @@ const Certifications: React.FC = () => {
     },
     {
       title: "Certified Data Scientist",
-      issuer: "Sagar Software Solutions", 
+      issuer: "Professional Certification", 
       year: "2021",
       category: "Data Science",
       color: "from-teal-500 to-green-500", 
@@ -64,7 +151,7 @@ const Certifications: React.FC = () => {
     },
     {
       title: "Certified Django Developer",
-      issuer: "Asian Technologies",
+      issuer: "Professional Certification",
       year: "2021",
       category: "Framework",
       color: "from-rose-500 to-pink-500",
@@ -178,6 +265,12 @@ const Certifications: React.FC = () => {
                   <p className={`font-semibold text-sm mb-3 bg-gradient-to-r ${cert.color} bg-clip-text text-transparent`}>
                     {cert.issuer}
                   </p>
+
+                  {cert.credentialId && (
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                      Credential ID: {cert.credentialId}
+                    </p>
+                  )}
 
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">

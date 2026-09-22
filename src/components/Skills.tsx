@@ -52,7 +52,10 @@ const Skills: React.FC = () => {
       color: "from-orange-500 to-red-500",
       skills: [
         "Microsoft Fabric",
+        "Databricks",
+        "Snowflake",
         "Azure DevOps", 
+        "Jira",
         "AWS EC2",
         "AWS IAM",
         "AWS Lambda Functions",
