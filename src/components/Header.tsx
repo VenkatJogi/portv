@@ -1,128 +1,111 @@
-import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
-import { motion, AnimatePresence } from 'framer-motion';
+
+const navItems = [
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Awards', href: '#achievements' },
+  { name: 'Community', href: '#community' },
+  { name: 'Credentials', href: '#certifications' },
+  { name: 'Contact', href: '#contact' }
+];
 
 const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Achievements', href: '#achievements' },
-    { name: 'Community', href: '#community' },
-    { name: 'Certifications', href: '#certifications' },
-    // { name: 'Strengths', href: '#strengths' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMobileMenuOpen(false);
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20' 
-          : 'bg-transparent'
-      }`}
-    >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer"
-            onClick={() => scrollToSection('#hero')}
-          >
-            Venkat Jogi
-          </motion.div>
+    <header className="fixed inset-x-0 top-0 z-50 px-3 md:px-6 pt-3">
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className={`mx-auto max-w-[1320px] rounded-2xl border px-4 md:px-5 transition-all duration-300 ${
+          isScrolled
+            ? 'border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-[#0b0f19]/90 shadow-[0_12px_45px_rgba(15,23,42,0.14)] backdrop-blur-2xl'
+            : 'border-white/50 dark:border-white/10 bg-white/55 dark:bg-[#0b0f19]/55 backdrop-blur-xl'
+        }`}
+      >
+        <div className="flex h-16 items-center justify-between">
+          <button onClick={() => scrollToSection('#hero')} className="flex items-center gap-3 group">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-slate-950 dark:bg-white text-sm font-black text-white dark:text-slate-950 transition-transform group-hover:rotate-[-6deg]">
+              RVJ
+            </span>
+            <span className="hidden sm:block text-left">
+              <span className="block text-sm font-black leading-none text-slate-950 dark:text-white">Venkat Jogi</span>
+              <span className="mt-1 block text-[10px] uppercase tracking-[0.16em] text-slate-500">Technical Lead</span>
+            </span>
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden xl:flex items-center gap-1">
             {navItems.map((item) => (
-              <motion.button
+              <button
                 key={item.name}
-                whileHover={{ y: -2 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium text-sm"
+                className="rounded-full px-3 py-2 text-xs font-semibold text-slate-600 dark:text-slate-300 transition-colors hover:bg-slate-950 hover:text-white dark:hover:bg-white dark:hover:text-slate-950"
               >
                 {item.name}
-              </motion.button>
+              </button>
             ))}
-            
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-            >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <motion.button
-              whileTap={{ scale: 0.9 }}
+          <div className="flex items-center gap-2">
+            <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+              className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:border-orange-400 transition-colors"
+              aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </motion.button>
-            
-            <motion.button
-              whileTap={{ scale: 0.9 }}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+              className="xl:hidden grid h-10 w-10 place-items-center rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950"
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden border-t border-slate-200 dark:border-white/10"
             >
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"
-                >
-                  {item.name}
-                </motion.button>
-              ))}
+              <div className="grid sm:grid-cols-2 gap-2 py-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-orange-500/10"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
-    </motion.header>
+      </motion.nav>
+    </header>
   );
 };
 

@@ -1,286 +1,109 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+
+const orbs = [
+  { x: '-8%', y: '-10%', size: 520, color: 'bg-orange-400/20 dark:bg-orange-500/15', duration: 22 },
+  { x: '70%', y: '4%', size: 460, color: 'bg-teal-400/20 dark:bg-teal-500/15', duration: 26 },
+  { x: '18%', y: '48%', size: 390, color: 'bg-rose-300/20 dark:bg-rose-500/10', duration: 24 },
+  { x: '74%', y: '68%', size: 520, color: 'bg-cyan-400/20 dark:bg-cyan-500/15', duration: 29 },
+  { x: '-12%', y: '82%', size: 440, color: 'bg-violet-300/20 dark:bg-violet-500/10', duration: 27 }
+];
+
+const particles = Array.from({ length: 34 }, (_, index) => ({
+  id: index,
+  x: (index * 37 + 11) % 100,
+  y: (index * 61 + 7) % 100,
+  size: 2 + (index % 3),
+  duration: 7 + (index % 6),
+  delay: (index % 8) * 0.45
+}));
 
 const BackgroundEffects: React.FC = () => {
-  // Generate random positions for particles
-  const particles = Array.from({ length: 80 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 6 + 2,
-    duration: Math.random() * 25 + 15,
-    delay: Math.random() * 5,
-  }));
-
-  const cubes = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 30 + 15,
-    rotation: Math.random() * 360,
-    duration: Math.random() * 40 + 25,
-    delay: Math.random() * 3,
-  }));
-
-  const dots = Array.from({ length: 60 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 20 + 10,
-    delay: Math.random() * 4,
-  }));
-
-  const orbs = Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 100 + 50,
-    duration: Math.random() * 30 + 20,
-    delay: Math.random() * 2,
-  }));
+  const reduceMotion = useReducedMotion();
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      {/* Animated Gradient Background */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-        className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-transparent via-purple-50/20 to-cyan-50/30 dark:from-blue-900/15 dark:via-transparent dark:via-purple-900/10 dark:to-cyan-900/15"
-      />
-      
-      {/* Large Floating Orbs */}
-      {orbs.map((orb) => (
-        <motion.div
-          key={`orb-${orb.id}`}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/5 via-purple-400/8 to-cyan-400/5 dark:from-blue-300/3 dark:via-purple-300/5 dark:to-cyan-300/3 blur-xl"
-          style={{
-            left: `${orb.x}%`,
-            top: `${orb.y}%`,
-            width: `${orb.size}px`,
-            height: `${orb.size}px`,
-          }}
-          animate={{
-            x: [-50, 50, -50],
-            y: [-30, 30, -30],
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: orb.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: orb.delay,
-          }}
-        />
-      ))}
-      
-      {/* Floating Particles */}
-      {particles.map((particle) => (
-        <motion.div
-          key={`particle-${particle.id}`}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/30 to-purple-400/30 dark:from-blue-300/20 dark:to-purple-300/20"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-          }}
-          animate={{
-            y: [-30, 30, -30],
-            x: [-15, 15, -15],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [0.8, 1.2, 0.8],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: particle.delay,
-          }}
-        />
-      ))}
-
-      {/* Floating Cubes */}
-      {cubes.map((cube) => (
-        <motion.div
-          key={`cube-${cube.id}`}
-          className="absolute border border-blue-200/40 dark:border-blue-400/30 bg-gradient-to-br from-blue-100/10 to-purple-100/10 dark:from-blue-400/5 dark:to-purple-400/5 backdrop-blur-sm"
-          style={{
-            left: `${cube.x}%`,
-            top: `${cube.y}%`,
-            width: `${cube.size}px`,
-            height: `${cube.size}px`,
-            transform: `rotate(${cube.rotation}deg)`,
-          }}
-          animate={{
-            rotate: [cube.rotation, cube.rotation + 360, cube.rotation + 720],
-            y: [-40, 40, -40],
-            x: [-20, 20, -20],
-            opacity: [0.1, 0.4, 0.1],
-            scale: [0.8, 1.1, 0.8],
-          }}
-          transition={{
-            duration: cube.duration,
-            repeat: Infinity,
-            ease: "linear",
-            delay: cube.delay,
-          }}
-        />
-      ))}
-
-      {/* Small Dots */}
-      {dots.map((dot) => (
-        <motion.div
-          key={`dot-${dot.id}`}
-          className="absolute rounded-full bg-gradient-to-r from-cyan-400/40 to-blue-400/40 dark:from-cyan-300/25 dark:to-blue-300/25"
-          style={{
-            left: `${dot.x}%`,
-            top: `${dot.y}%`,
-            width: `${dot.size}px`,
-            height: `${dot.size}px`,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            opacity: [0.3, 0.9, 0.3],
-            scale: [0.5, 1.5, 0.5],
-          }}
-          transition={{
-            duration: dot.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: dot.delay,
-          }}
-        />
-      ))}
-
-      {/* Enhanced Grid Pattern */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 3, delay: 0.5 }}
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+    <div aria-hidden="true" className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#f7f3ea] dark:bg-[#080b12]">
+      <div
+        className="absolute inset-0 dark:hidden"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.2) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.2) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
+            radial-gradient(circle at 15% 12%, rgba(249, 115, 22, 0.18), transparent 32%),
+            radial-gradient(circle at 85% 18%, rgba(20, 184, 166, 0.16), transparent 30%),
+            radial-gradient(circle at 50% 72%, rgba(244, 63, 94, 0.10), transparent 38%),
+            linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,247,237,0.35) 42%, rgba(240,253,250,0.48))
+          `
         }}
       />
 
-      {/* Animated Dot Pattern */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, delay: 1 }}
-        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.1]"
+      <div
+        className="absolute inset-0 hidden dark:block"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(147, 197, 253, 0.4) 2px, transparent 2px)`,
-          backgroundSize: '40px 40px',
+          backgroundImage: `
+            radial-gradient(circle at 12% 10%, rgba(249, 115, 22, 0.17), transparent 34%),
+            radial-gradient(circle at 88% 20%, rgba(20, 184, 166, 0.14), transparent 32%),
+            radial-gradient(circle at 52% 75%, rgba(244, 63, 94, 0.09), transparent 38%),
+            linear-gradient(145deg, #080b12 0%, #11151d 48%, #0b1114 100%)
+          `
         }}
       />
 
-      {/* Enhanced Vector Lines */}
-      <motion.svg 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 4, delay: 1.5 }}
-        className="absolute inset-0 w-full h-full opacity-[0.03] dark:opacity-[0.08]"
-      >
-        <defs>
-          <pattern id="vector-lines" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
-            <motion.path 
-              d="M0,150 Q75,75 150,150 T300,150" 
-              stroke="url(#gradient1)" 
-              strokeWidth="2" 
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 3, delay: 2 }}
-            />
-            <motion.path 
-              d="M150,0 Q225,75 150,150 T150,300" 
-              stroke="url(#gradient2)" 
-              strokeWidth="2" 
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 3, delay: 2.5 }}
-            />
-            <motion.circle 
-              cx="150" 
-              cy="150" 
-              r="3" 
-              fill="url(#gradient1)"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1, delay: 3 }}
-            />
-          </pattern>
-          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="rgb(147, 51, 234)" stopOpacity="0.2" />
-          </linearGradient>
-          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgb(6, 182, 212)" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#vector-lines)" />
-      </motion.svg>
-
-      {/* Space Effect - Twinkling Stars */}
-      {Array.from({ length: 30 }).map((_, i) => (
+      {orbs.map((orb, index) => (
         <motion.div
-          key={`star-${i}`}
-          className="absolute w-1 h-1 bg-white dark:bg-blue-200 rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+          key={orb.x + orb.y}
+          className={`absolute rounded-full blur-3xl ${orb.color}`}
+          style={{ left: orb.x, top: orb.y, width: orb.size, height: orb.size }}
+          animate={reduceMotion ? undefined : {
+            x: [0, index % 2 === 0 ? 70 : -60, 0],
+            y: [0, index % 2 === 0 ? 45 : 70, 0],
+            scale: [1, 1.12, 1]
           }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0.5, 1.5, 0.5],
-          }}
-          transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-          }}
+          transition={{ duration: orb.duration, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
 
-      {/* Flowing Lines */}
       <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 3, delay: 2 }}
-      >
-        {Array.from({ length: 5 }).map((_, i) => (
-          <motion.div
-            key={`line-${i}`}
-            className="absolute h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent dark:via-blue-300/15"
-            style={{
-              top: `${20 + i * 20}%`,
-              left: 0,
-              right: 0,
-            }}
-            animate={{
-              x: ['-100%', '100%'],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              delay: i * 1.5,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </motion.div>
+        className="absolute -left-[20%] top-[18%] h-40 w-[140%] rotate-[-12deg] bg-gradient-to-r from-transparent via-orange-400/10 to-transparent blur-2xl dark:via-orange-400/10"
+        animate={reduceMotion ? undefined : { x: ['-8%', '8%', '-8%'], opacity: [0.45, 0.8, 0.45] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute -left-[20%] top-[62%] h-48 w-[140%] rotate-[10deg] bg-gradient-to-r from-transparent via-teal-400/10 to-transparent blur-3xl dark:via-teal-400/10"
+        animate={reduceMotion ? undefined : { x: ['8%', '-8%', '8%'], opacity: [0.35, 0.7, 0.35] }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      <div
+        className="absolute inset-0 opacity-[0.18] dark:opacity-[0.16]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(15, 23, 42, 0.12) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15, 23, 42, 0.12) 1px, transparent 1px)
+          `,
+          backgroundSize: '72px 72px',
+          maskImage: 'linear-gradient(to bottom, black, transparent 88%)'
+        }}
+      />
+
+      <div
+        className="absolute inset-0 opacity-35 dark:opacity-45"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(20, 184, 166, 0.28) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          maskImage: 'radial-gradient(ellipse at center, black, transparent 72%)'
+        }}
+      />
+
+      {particles.map((particle) => (
+        <motion.span
+          key={particle.id}
+          className="absolute rounded-full bg-orange-500/35 shadow-[0_0_12px_rgba(249,115,22,0.45)] dark:bg-orange-300/45"
+          style={{ left: `${particle.x}%`, top: `${particle.y}%`, width: particle.size, height: particle.size }}
+          animate={reduceMotion ? undefined : { y: [0, -18, 0], opacity: [0.18, 0.75, 0.18] }}
+          transition={{ duration: particle.duration, delay: particle.delay, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      ))}
+
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(15,23,42,0.08)_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(0,0,0,0.38)_100%)]" />
     </div>
   );
 };

@@ -138,16 +138,16 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === selectedFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-blue-50/80 via-white/80 to-purple-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-blue-900/80">
+    <section id="projects" className="py-14 md:py-16 bg-white/15 dark:bg-white/[0.015] backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
-        <SectionTransition direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Innovative solutions that showcase cutting-edge technology and AI-driven development
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
         </SectionTransition>
 
         {/* Filter Buttons */}
@@ -171,13 +171,14 @@ const Projects: React.FC = () => {
         </SectionTransition> */}
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
               <SectionTransition
                 key={project.id}
                 direction="scale"
                 delay={index * 0.1}
+                className="h-full"
               >
                 <motion.div
                   layout
@@ -186,18 +187,18 @@ const Projects: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   whileHover={{ y: -12, scale: 1.03, rotateY: 5 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+                  className="group h-full flex flex-col bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40 cursor-pointer"
                 >
                   {/* Project Header */}
                   <motion.div 
                     className={`h-2 bg-gradient-to-r ${project.gradient} group-hover:h-3 transition-all duration-300`}
                   />
                 
-                  <div className="p-6">
+                  <div className="p-5 flex flex-1 flex-col">
                     {/* Category Badge */}
                     <motion.div 
                       whileHover={{ scale: 1.1 }}
-                      className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium mb-4 transition-transform duration-200"
+                      className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium mb-3 transition-transform duration-200"
                     >
                       {project.category}
                     </motion.div>
@@ -206,12 +207,12 @@ const Projects: React.FC = () => {
                       {project.title}
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
                       {project.description}
                     </p>
 
                     {/* Technology Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mt-auto">
                       {project.technologies.slice(0, 4).map((tech, techIndex) => (
                         <motion.span
                           key={tech}

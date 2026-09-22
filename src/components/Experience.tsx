@@ -86,39 +86,6 @@ const Experience: React.FC = () => {
         "Responsible for end-to-end application development and deployment",
         "Technologies used: HTML, PHP, IONIC, MySQL, Android Studio"
       ]
-    },
-    {
-      title: "Community Leader",
-      company: "Microsoft AI Innovators Hub",
-      location: "Hyderabad, India", 
-      period: "March 2024 - Present",
-      type: "Current",
-      achievements: [
-        "3000+ Community and 31+ Event as on Aug 15th",
-        "Ledding and participated in AI & Data community initiatives through Microsoft AI Innovators Hub, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
-      ]
-    },
-     {
-      title: "Community Leader",
-      company: "Global AI Hyderabad",
-      location: "Hyderabad, India", 
-      period: "March 2024 - Present",
-      type: "Current",
-      achievements: [
-        "2000+ Community and 31+ Event as on Aug 15th",
-        "Ledding and participated in AI & Data community initiatives through Global AI Hyderabad, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
-      ]
-    },
-     {
-      title: "Community Leader",
-      company: "Global AI Puducherry",
-      location: "Hyderabad, India", 
-      period: "March 2024 - Present",
-      type: "Current",
-      achievements: [
-        "500+ Community and 3+ Event as on Aug 15th",
-        "Ledding and participated in AI & Data community initiatives through Global AI Puducherry, driving engagement via trend-focused events, workshops, hackathons, and networking sessions to foster learning and innovation in applied AI."
-      ]
     }
   ];
 
@@ -130,32 +97,33 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-blue-50/80 via-white/80 to-purple-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-blue-900/80">
+    <section id="experience" className="py-14 md:py-16 bg-teal-50/20 dark:bg-teal-950/5 backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
-        <SectionTransition direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Professional Journey
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Experience
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
         </SectionTransition>
 
         {/* Main Experience Timeline */}
-        <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 gap-5">
           {experiences.map((exp, index) => (
             <SectionTransition
               key={index}
               direction="left"
               delay={index * 0.1}
+              className={index === 0 ? 'lg:col-span-2 h-full' : 'h-full'}
             >
               <motion.div
                 whileHover={{ y: -8, scale: 1.02, rotateX: 2 }}
                 whileTap={{ scale: 0.98 }}
-                className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+                className="group h-full bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3">
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -184,7 +152,7 @@ const Experience: React.FC = () => {
                       </motion.div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex flex-wrap items-center gap-3 mb-3 text-sm text-gray-600 dark:text-gray-400">
                       <div className="flex items-center">
                         <motion.div whileHover={{ scale: 1.2 }}>
                           <Calendar className="w-4 h-4 mr-1" />
@@ -209,7 +177,7 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {exp.achievements.map((achievement, achIndex) => (
                     <motion.li 
                       key={achIndex} 
@@ -228,7 +196,7 @@ const Experience: React.FC = () => {
                   ))}
                 </ul>
                 <motion.div 
-                  className="mt-6 h-1 w-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-full transition-all duration-700"
+                  className="mt-4 h-1 w-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-full transition-all duration-700"
                 />
               </motion.div>
             </SectionTransition>
@@ -236,21 +204,22 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Internships Section */}
-        <SectionTransition direction="up" delay={0.6} className="mt-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        <SectionTransition direction="up" delay={0.6} className="mt-12">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
             Internships
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {internships.map((internship, index) => (
               <SectionTransition
                 key={index}
                 direction="scale"
                 delay={0.8 + index * 0.1}
+                className="h-full"
               >
                 <motion.div
                   whileHover={{ y: -8, scale: 1.05, rotateY: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group bg-gradient-to-br from-blue-50/90 to-purple-50/90 dark:from-gray-800/90 dark:to-blue-900/30 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-200 dark:hover:border-blue-400"
+                  className="group h-full bg-white/75 dark:bg-white/5 backdrop-blur-xl p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40"
                 >
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {internship.company}

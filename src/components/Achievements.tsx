@@ -82,16 +82,16 @@ const Achievements: React.FC = () => {
   ];
 
   return (
-    <section id="achievements" className="py-20 bg-gradient-to-br from-blue-50/80 via-white/80 to-purple-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-blue-900/80">
+    <section id="achievements" className="py-14 md:py-16 bg-rose-50/20 dark:bg-rose-950/5 backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
-        <SectionTransition direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Recognition & Awards
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Achievements that reflect excellence in technology, leadership, and innovation
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
         </SectionTransition>
 
         {/* Stats Section */}
@@ -131,11 +131,12 @@ const Achievements: React.FC = () => {
               key={achievement.title}
               direction="up"
               delay={0.4 + index * 0.1}
+              className="h-full"
             >
               <motion.div
                 whileHover={{ y: -10, scale: 1.03, rotateY: 5 }}
                 whileTap={{ scale: 0.98 }}
-                className="group bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 cursor-pointer"
+                className="group h-full bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40 cursor-pointer"
               >
                 {/* Icon and Year */}
                 <div className="flex items-center justify-between mb-4">

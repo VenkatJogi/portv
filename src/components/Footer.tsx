@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-16 relative overflow-hidden">
+    <footer className="bg-gray-900 dark:bg-black text-white py-10 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"></div>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,8 +61,8 @@ const Footer: React.FC = () => {
             </motion.div>
             
             <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-              Innovative Tech Leader & AI Enthusiast transforming ideas into impactful solutions. 
-              Specializing in full-stack development, AI integration, and team leadership.
+              Innovative Tech Leader and AI & Data Enthusiast transforming ideas into impactful solutions. 
+              Specializing in forward deployed AI engineering, intelligent data solutions, and team leadership.
             </p>
 
             {/* <div className="space-y-3 mb-6">
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="border-t border-gray-800 mt-12 pt-8"
+          className="border-t border-gray-800 mt-8 pt-6"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center text-gray-300 mb-4 md:mb-0">

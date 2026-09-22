@@ -60,32 +60,32 @@ const Contact: React.FC = () => {
   const isFormValid = formData.name && formData.email && formData.message;
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50/80 via-white/80 to-purple-50/80 dark:from-gray-900/80 dark:via-gray-800/80 dark:to-blue-900/80">
+    <section id="contact" className="py-14 md:py-16 bg-white/15 dark:bg-white/[0.015] backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
-        <SectionTransition direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get in Touch
           </h2>
           {/* <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             I'm always interested in hearing about new projects and opportunities. 
             Whether you have a question or just want to say hi, feel free to reach out!
           </p> */}
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
         </SectionTransition>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <SectionTransition direction="left" delay={0.2}>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
               Let's Start a Conversation
             </h3>
             {/* <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
               Ready to transform your ideas into innovative solutions? I'd love to discuss your project, 
-              explore collaboration opportunities, or share insights about AI, full-stack development, 
+              explore collaboration opportunities, or share insights about AI, data, forward deployed engineering, 
               and technology leadership.
             </p> */}
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <SectionTransition
                   key={info.label}
@@ -99,11 +99,11 @@ const Contact: React.FC = () => {
                   >
                     <a
                       href={info.href}
-                      className="flex items-center p-6 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
+                      className="flex items-center p-5 bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500"
                     >
                       <motion.div 
                         whileHover={{ scale: 1.2, rotate: 10 }}
-                        className={`p-4 rounded-xl bg-gradient-to-r ${info.color} mr-6 transition-transform duration-200`}
+                        className={`p-3 rounded-xl bg-gradient-to-r ${info.color} mr-4 transition-transform duration-200`}
                       >
                         <info.icon className="w-6 h-6 text-white" />
                       </motion.div>
@@ -125,10 +125,10 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Additional Info */}
-            <SectionTransition direction="up" delay={0.8} className="mt-8">
+            <SectionTransition direction="up" delay={0.8} className="mt-5">
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
-                className="p-6 bg-gradient-to-r from-blue-50/90 to-purple-50/90 dark:from-gray-800/90 dark:to-blue-900/30 backdrop-blur-sm rounded-2xl border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-200 dark:hover:border-blue-400 transition-all duration-300"
+                className="p-5 bg-gradient-to-r from-blue-50/90 to-purple-50/90 dark:from-gray-800/90 dark:to-blue-900/30 backdrop-blur-sm rounded-2xl border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-200 dark:hover:border-blue-400 transition-all duration-300"
               >
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 Response Time
@@ -144,9 +144,9 @@ const Contact: React.FC = () => {
           <SectionTransition direction="right" delay={0.4}>
             <motion.div
               whileHover={{ scale: 1.01, y: -5 }}
-              className="bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-300"
+              className="bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-300"
             >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -260,16 +260,16 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <SectionTransition direction="scale" delay={1.0} className="text-center mt-16">
+        <SectionTransition direction="scale" delay={1.0} className="text-center mt-10">
           <motion.div
             whileHover={{ scale: 1.02, y: -5 }}
             className="transition-transform duration-300"
           >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 md:p-12 rounded-3xl text-white">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 md:p-8 rounded-3xl text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Something Amazing?
             </h3>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg mb-5 opacity-90 max-w-2xl mx-auto">
               Let's discuss your next project, explore innovative solutions, or simply connect 
               to share ideas about the future of technology.
             </p>
@@ -278,7 +278,7 @@ const Contact: React.FC = () => {
                 href="mailto:ritishjogi@outlook.com"
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email Me
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                 href="tel:+917075073344"
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
+                className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Call Me
