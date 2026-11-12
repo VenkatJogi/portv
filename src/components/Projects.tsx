@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Innovative solutions that showcase cutting-edge technology and AI-driven development
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4"></div>
         </SectionTransition>
 
         {/* Filter Buttons */}
@@ -187,7 +187,7 @@ const Projects: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   whileHover={{ y: -12, scale: 1.03, rotateY: 5 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group h-full flex flex-col bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40 cursor-pointer"
+                  className="group h-full flex flex-col bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200/80 dark:border-white/10 hover:border-indigo-300 dark:hover:border-indigo-500/40 cursor-pointer"
                 >
                   {/* Project Header */}
                   <motion.div 

@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Heart, Code } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Heart, Code } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com/in/ritishjogi', label: 'LinkedIn' },
-    { icon: Github, href: 'https://github.com/ritishjogi', label: 'GitHub' },
-    { icon: Twitter, href: 'https://twitter.com/ritishjogi', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/venkatrj/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/venkatjogi', label: 'GitHub' },
   ];
 
   const quickLinks = [
@@ -37,7 +36,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 dark:bg-black text-white py-10 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-500"></div>
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -55,7 +54,7 @@ const Footer: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               onClick={scrollToTop}
-              className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-6 cursor-pointer inline-block"
+              className="text-3xl font-bold bg-gradient-to-r from-indigo-300 to-cyan-300 bg-clip-text text-transparent mb-6 cursor-pointer inline-block"
             >
               Venkat Jogi
             </motion.div>
@@ -94,7 +93,7 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-800 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 rounded-lg transition-all duration-300"
+                  className="p-3 bg-gray-800 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-cyan-500 rounded-lg transition-all duration-300"
                   aria-label={link.label}
                 >
                   <link.icon className="w-5 h-5" />
@@ -179,7 +178,7 @@ const Footer: React.FC = () => {
           onClick={scrollToTop}
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
           aria-label="Back to top"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

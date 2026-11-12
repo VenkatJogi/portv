@@ -97,7 +97,7 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-14 md:py-16 bg-teal-50/20 dark:bg-teal-950/5 backdrop-blur-[1px]">
+    <section id="experience" className="py-14 md:py-16 bg-cyan-50/20 dark:bg-cyan-950/5 backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
         <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
@@ -106,7 +106,7 @@ const Experience: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Experience
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4"></div>
         </SectionTransition>
 
         {/* Main Experience Timeline */}
@@ -219,7 +219,7 @@ const Experience: React.FC = () => {
                 <motion.div
                   whileHover={{ y: -8, scale: 1.05, rotateY: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group h-full bg-white/75 dark:bg-white/5 backdrop-blur-xl p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40"
+                  className="group h-full bg-white/75 dark:bg-white/5 backdrop-blur-xl p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-slate-200/80 dark:border-white/10 hover:border-indigo-300 dark:hover:border-indigo-500/40"
                 >
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {internship.company}

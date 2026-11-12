@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
             I'm always interested in hearing about new projects and opportunities. 
             Whether you have a question or just want to say hi, feel free to reach out!
           </p> */}
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4"></div>
         </SectionTransition>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
                 whileTap={{ scale: isFormValid ? 0.98 : 1 }}
                 className={`w-full flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 ${
                   isFormValid && formStatus !== 'sending'
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl'
+                    ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg hover:shadow-xl'
                     : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
                 }`}
               >
@@ -265,7 +265,7 @@ const Contact: React.FC = () => {
             whileHover={{ scale: 1.02, y: -5 }}
             className="transition-transform duration-300"
           >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 md:p-8 rounded-3xl text-white">
+          <div className="bg-gradient-to-r from-indigo-700 via-violet-600 to-cyan-500 p-6 md:p-8 rounded-3xl text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Build Something Amazing?
             </h3>
@@ -278,7 +278,7 @@ const Contact: React.FC = () => {
                 href="mailto:ritishjogi@outlook.com"
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email Me
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                 href="tel:+917075073344"
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200"
+                className="inline-flex items-center px-6 py-3 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-200"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Call Me

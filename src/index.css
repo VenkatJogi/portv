@@ -4,11 +4,11 @@
 
 html {
   scroll-behavior: smooth;
-  background: #f7f3ea;
+  background: #f5f7ff;
 }
 
 html.dark {
-  background: #080b12;
+  background: #070816;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 
 ::selection {
   color: white;
-  background: rgba(234, 88, 12, 0.9);
+  background: rgba(79, 70, 229, 0.92);
 }
 
 main > section:not(#hero) {

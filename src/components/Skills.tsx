@@ -109,7 +109,7 @@ const Skills: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Mastering the latest technologies to create innovative solutions
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4"></div>
         </SectionTransition>
 
         {/* Technical Skills Matrix */}
@@ -123,7 +123,7 @@ const Skills: React.FC = () => {
             >
               <motion.div
                 whileHover={{ x: 4 }}
-                className="group grid md:grid-cols-[64px_240px_1fr] items-start gap-5 px-5 md:px-7 py-6 transition-colors duration-300 hover:bg-orange-50/60 dark:hover:bg-orange-500/[0.04]"
+                className="group grid md:grid-cols-[64px_240px_1fr] items-start gap-5 px-5 md:px-7 py-6 transition-colors duration-300 hover:bg-indigo-50/60 dark:hover:bg-indigo-500/[0.04]"
               >
                 <div className="flex md:block items-center justify-between">
                   <span className="text-xs font-black tracking-[0.2em] text-slate-400 dark:text-slate-500">
@@ -137,7 +137,7 @@ const Skills: React.FC = () => {
                     <category.icon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-black text-slate-950 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-300">
+                    <h3 className="text-lg font-black text-slate-950 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
                       {category.title}
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400">{category.skills.length} technologies</p>
@@ -149,7 +149,7 @@ const Skills: React.FC = () => {
                     <motion.span
                       key={skill}
                       whileHover={{ y: -2 }}
-                      className="rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors hover:border-orange-300 hover:text-orange-700 dark:hover:border-orange-500/40 dark:hover:text-orange-300"
+                      className="rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors hover:border-indigo-300 hover:text-indigo-700 dark:hover:border-indigo-500/40 dark:hover:text-indigo-300"
                     >
                       {skill}
                     </motion.span>

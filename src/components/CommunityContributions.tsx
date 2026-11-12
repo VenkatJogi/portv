@@ -62,7 +62,7 @@ const CommunityContributions: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Building communities and enabling professionals to learn, collaborate, and innovate across AI, data, and cloud technologies
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4" />
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4" />
         </SectionTransition>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
@@ -95,7 +95,7 @@ const CommunityContributions: React.FC = () => {
                 whileHover={{ scale: 1.03 }}
                 className="h-full flex items-start gap-4 p-4 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200/80 dark:border-white/10"
               >
-                <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600">
+                <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500">
                   <contribution.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>

@@ -82,7 +82,7 @@ const Achievements: React.FC = () => {
   ];
 
   return (
-    <section id="achievements" className="py-14 md:py-16 bg-rose-50/20 dark:bg-rose-950/5 backdrop-blur-[1px]">
+    <section id="achievements" className="py-14 md:py-16 bg-violet-50/20 dark:bg-violet-950/5 backdrop-blur-[1px]">
       <div className="container mx-auto px-6">
         <SectionTransition direction="up" className="text-left mb-10 md:mb-12 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -91,7 +91,7 @@ const Achievements: React.FC = () => {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Achievements that reflect excellence in technology, leadership, and innovation
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 mt-4"></div>
         </SectionTransition>
 
         {/* Stats Section */}
@@ -136,7 +136,7 @@ const Achievements: React.FC = () => {
               <motion.div
                 whileHover={{ y: -10, scale: 1.03, rotateY: 5 }}
                 whileTap={{ scale: 0.98 }}
-                className="group h-full bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200/80 dark:border-white/10 hover:border-orange-300 dark:hover:border-orange-500/40 cursor-pointer"
+                className="group h-full bg-white/85 dark:bg-[#101522]/85 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200/80 dark:border-white/10 hover:border-indigo-300 dark:hover:border-indigo-500/40 cursor-pointer"
               >
                 {/* Icon and Year */}
                 <div className="flex items-center justify-between mb-4">

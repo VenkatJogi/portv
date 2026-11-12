@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-center">
           <div>
             <SectionTransition direction="fade" duration={0.6}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/70 bg-orange-50/80 dark:border-orange-500/30 dark:bg-orange-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-300 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/70 bg-indigo-50/80 dark:border-indigo-500/30 dark:bg-indigo-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300 mb-6">
                 <Sparkles className="w-4 h-4" />
                 Technical Lead · AI & Data
               </div>
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
               </p>
               <h1 className="text-[clamp(3.2rem,7vw,6.8rem)] font-black leading-[0.9] tracking-[-0.07em] text-slate-950 dark:text-white">
                 Building
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-violet-600">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-500">
                   intelligence
                 </span>
                 into impact.
@@ -63,11 +63,11 @@ const Hero: React.FC = () => {
 
           <SectionTransition direction="left" duration={0.7} delay={0.18}>
             <div className="relative">
-              <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-orange-400/25 via-transparent to-cyan-400/25 blur-2xl" />
+              <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-indigo-500/25 via-transparent to-cyan-400/25 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/70 dark:border-white/10 bg-white/75 dark:bg-[#101522]/80 p-6 md:p-8 shadow-[0_30px_90px_rgba(15,23,42,0.18)] backdrop-blur-2xl">
                 <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-5">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400">Current</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">Current</p>
                     <h2 className="mt-1 text-2xl font-black text-slate-950 dark:text-white">Blend 360</h2>
                   </div>
                   <span className="flex items-center gap-2 rounded-full bg-emerald-100 dark:bg-emerald-500/15 px-3 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300">
@@ -77,12 +77,12 @@ const Hero: React.FC = () => {
 
                 <div className="grid sm:grid-cols-2 gap-3 py-5">
                   <div className="rounded-2xl bg-slate-100/80 dark:bg-white/5 p-4">
-                    <Briefcase className="w-5 h-5 text-orange-500 mb-3" />
+                    <Briefcase className="w-5 h-5 text-indigo-500 mb-3" />
                     <p className="text-xs uppercase tracking-wider text-slate-500">Clients</p>
                     <p className="mt-1 font-bold text-slate-900 dark:text-white">CDW · STEM · Charter</p>
                   </div>
                   <div className="rounded-2xl bg-slate-100/80 dark:bg-white/5 p-4">
-                    <MapPin className="w-5 h-5 text-teal-500 mb-3" />
+                    <MapPin className="w-5 h-5 text-cyan-500 mb-3" />
                     <p className="text-xs uppercase tracking-wider text-slate-500">Based in</p>
                     <p className="mt-1 font-bold text-slate-900 dark:text-white">Hyderabad, India</p>
                   </div>

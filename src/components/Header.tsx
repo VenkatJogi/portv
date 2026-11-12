@@ -67,7 +67,7 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:border-orange-400 transition-colors"
+              className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:border-indigo-400 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-orange-500/10"
+                    className="rounded-xl px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-500/10"
                   >
                     {item.name}
                   </button>
