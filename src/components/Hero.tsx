@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-y border-slate-200 dark:border-white/10 py-5">
                   {[
-                    ['8+', 'Years'],
+                    ['9+', 'Years'],
                     ['15', 'Projects'],
                     ['16', 'Credentials'],
                     ['6', 'Communities']

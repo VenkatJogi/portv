@@ -23,7 +23,7 @@ const About: React.FC = () => {
   ];
 
   const overview = [
-    { icon: Briefcase, value: "8+", label: "Years of Experience", detail: "AI, data & engineering" },
+    { icon: Briefcase, value: "9+", label: "Years of Experience", detail: "AI, data & engineering" },
     { icon: Users, value: "6", label: "Communities Led", detail: "Microsoft, Global AI & Databricks" },
     { icon: BadgeCheck, value: "16", label: "Credentials", detail: "AI, cloud, data & development" },
     { icon: Award, value: "8", label: "Awards", detail: "Leadership, speaking & innovation" }
@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 <h3 className="text-2xl md:text-3xl font-black tracking-tight text-slate-950 dark:text-white">My Journey</h3>
               </div>
               <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-                <strong className="font-black text-slate-950 dark:text-white">Ritish Venkat Jogi</strong> is a <strong className="text-orange-600 dark:text-orange-400">Technical Lead and Forward Deployed AI Engineer</strong> with over <strong>8+ years of experience</strong> delivering enterprise applications, AI platforms, data engineering solutions, intelligent automation, and cloud-native products.
+                <strong className="font-black text-slate-950 dark:text-white">Ritish Venkat Jogi</strong> is a <strong className="text-orange-600 dark:text-orange-400">Technical Lead and Forward Deployed AI Engineer</strong> with over <strong>9+ years of experience</strong> delivering enterprise applications, AI platforms, data engineering solutions, intelligent automation, and cloud-native products.
               </p>
               <p className="mt-5 text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
                 He specializes in designing and deploying production-ready solutions using <strong>Python, React, Microsoft Fabric, Snowflake, Databricks, Azure, AWS, Power Platform, Generative AI, and Agentic AI</strong>. His work includes identity resolution and Customer 360 platforms, multi-agent analytics, healthcare conversation intelligence, embedded analytics, AI chatbots, and automated data workflows.
